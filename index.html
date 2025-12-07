@@ -3,134 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ویتوری - سریع‌ترین فیلترشکن ایران</title>
+    <title>خوش آمدید</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.2/Vazirmatn-wdth[wght].css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --purple: #6E48AA;
+            --gold: #FFD700;
+            --gold-dark: #E6C200;
             --dark: #0f0f1a;
-            --light: #f5f5f5;
+            --light: #ffffff;
+            --gray: #1c1c28;
         }
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Vazirmatn', sans-serif; }
-        body { background: var(--dark); color: white; line-height: 1.7; }
+        body { background: var(--dark); color: white; line-height: 1.7; overflow-x: hidden; }
+
         header {
-            background: rgba(0,0,0,0.7);
-            padding: 15px 5%;
+            background: linear-gradient(135deg, rgba(15,15,26,0.95), rgba(0,0,0,0.8));
+            padding: 18px 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,215,0,0.2);
         }
-        .logo { font-size: 28px; font-weight: 900; color: var(--purple); }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: 600; }
+        .logo { 
+            font-size: 32px; 
+            font-weight: 900; 
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255,215,0,0.4);
+        }
+        nav a { 
+            color: #eee; 
+            margin: 0 22px; 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
         .btn {
-            background: var(--purple);
-            color: white;
-            padding: 12px 30px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000 !important;
+            padding: 12px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+            transition: all 0.3s;
         }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,215,0,0.6); }
+
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://i.ibb.co/ZhYpK7K/vpn-hero.jpg') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('https://i.ibb.co/ZhYpK7K/vpn-hero.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            position: relative;
         }
-        .hero h1 { font-size: 58px; margin-bottom: 20px; }
-        .hero p { font-size: 24px; margin-bottom: 30px; color: #ddd; }
-        .btn-big { font-size: 22px; padding: 18px 50px; }
-        .features { padding: 100px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 30px; text-align: center; }
-        .feature-box { background: #1a1a2e; padding: 40px 20px; border-radius: 15px; }
-        .pricing { padding: 100px 5%; background: #16213e; }
-        .cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .card {
-            background: #1e1e2d;
-            width: 300px;
-            padding: 40px;
-            border-radius: 20px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255,215,0,0.1), transparent, rgba(255,215,0,0.1));
+        }
+        .hero h1 { 
+            font-size: 68px; 
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #FFD700, #ffffff, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+        .hero p { font-size: 26px; margin-bottom: 40px; color: #ddd; }
+        .btn-big { font-size: 24px; padding: 20px 60px; }
+
+        .features { 
+            padding: 120px 5%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); 
+            gap: 35px; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+        }
+        .feature-box { 
+            background: linear-gradient(135deg, #1e1e2d, #16213e);
+            padding: 50px 25px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .feature-box:hover { 
+            transform: translateY(-15px); 
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.15);
+        }
+        .feature-box i { font-size: 50px; color: var(--gold); margin-bottom: 20px; }
+
+        .pricing { 
+            padding: 120px 5%; 
+            background: linear-gradient(to top, #0f0f1a, #16213e);
+        }
+        .pricing h2 {
             text-align: center;
-            border: 2px solid transparent;
-            transition: 0.3s;
+            font-size: 48px;
+            margin-bottom: 70px;
+            background: linear-gradient(90deg, #FFD700, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .card.popular { border-color: var(--purple); transform: scale(1.1); }
-        .price { font-size: 42px; color: var(--purple); margin: 20px 0; }
-        footer { background: black; padding: 50px; text-align: center; }
+        .cards { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+        }
+        .card {
+            background: linear-gradient(135deg, #1a1a2a, #16213e);
+            width: 340px;
+            padding: 45px 30px;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(255,215,0,0.2);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: 0.7s;
+        }
+        .card:hover::before { left: 100%; }
+        .card:hover {
+            transform: translateY(-20px) scale(1.05);
+            border-color: var(--gold);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.25);
+        }
+        .card.popular {
+            border-color: var(--gold) !important;
+            transform: scale(1.1);
+            box-shadow: 0 25px 60px rgba(255,215,0,0.3);
+        }
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .price { 
+            font-size: 48px; 
+            color: var(--gold); 
+            margin: 25px 0;
+            font-weight: 900;
+        }
+        .old-price {
+            font-size: 20px;
+            color: #888;
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+        .volume { 
+            background: rgba(255,215,0,0.15);
+            color: var(--gold);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        footer { 
+            background: black; 
+            padding: 70px 20px; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,215,0,0.2);
+        }
+        footer p { margin: 15px 0; color: #aaa; }
+        /* ریسپانسیو اضافی برای گوشی‌های کوچک */
+        @media (max-width: 380px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .price { font-size: 40px; }
+            .card { padding: 35px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div style="display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:auto;">
-        <div class="logo">V2Ray</div>
+        <div class="logo">ویتوری</div>
         <nav>
             <a href="#pricing">تعرفه‌ها</a>
-            <a href="#download">دانلود</a>
+            <a href="#download">دانلود اپ</a>
             <a href="#support">پشتیبانی</a>
-            <a href="https://t.me/Leter11" class="btn">تلگرام</a>
+            <a href="https://t.me/Leter11" class="btn">تلگرام پشتیبانی</a>
         </nav>
     </div>
 </header>
 
 <section class="hero">
     <div>
-        <h1>اینترنت آزاد و امن با ویتوری</h1>
-        <p>سرعت بالا • بدون لاگ • سرورهای ۲۰+ کشور • پشتیبانی ۲۴ ساعته</p>
+        <h1>اینترنت آزاد با سرعت نور</h1>
+        <p>سریع‌ترین • امن‌ترین • لوکس‌ترین فیلترشکن ایران</p>
         <a href="#pricing" class="btn btn-big">همین حالا شروع کن</a>
     </div>
 </section>
 
 <section class="features">
     <div class="feature-box">
+        <i class="fas fa-bolt"></i>
         <h3>سرعت فوق‌العاده</h3>
-        <p>سرورهای پرقدرت آلمان، هلند، آمریکا</p>
+        <p>سرورهای آلمان • هلند • آمریکا • فنلاند</p>
     </div>
     <div class="feature-box">
+        <i class="fas fa-shield-alt"></i>
         <h3>پروتکل‌های پیشرفته</h3>
-        <p>WireGuard • V2Ray • Trojan • OpenVPN</p>
+        <p>V2Ray • Trojan • WireGuard • Hysteria2</p>
     </div>
     <div class="feature-box">
-        <h3>حجم نامحدود</h3>
-        <p>بدون محدودیت ترافیک و سرعت</p>
+        <i class="fas fa-infinity"></i>
+        <h3>حجم کاملاً نامحدود</h3>
+        <p>بدون محدودیت سرعت و ترافیک</p>
     </div>
     <div class="feature-box">
-        <h3>پشتیبانی ۲۴ ساعته</h3>
-        <p>تلگرام + تیکت + تماس مستقیم</p>
+        <i class="fas fa-headset"></i>
+        <h3>پشتیبانی طلایی ۲۴/۷</h3>
+        <p>تلگرام • تیکت • تماس مستقیم</p>
     </div>
 </section>
 
 <section class="pricing" id="pricing">
-    <h2 style="text-align:center; font-size:42px; margin-bottom:50px;">تعرفه‌های اشتراک</h2>
+    <h2>تعرفه‌های ویژه ویتوری</h2>
     <div class="cards">
         <div class="card">
-            <h3>200 گیگ</h3>
-            <div class="price">300.000 تومان</div>
-            <p style="color:#00ff00;">مدت نامحدود</p>
-            <a href="https://t.me/Leter11" class="btn">خرید</a>
+            <h3>اشتراک نامحدود</h3>
+            <div class="volume">حجم : 100 گیگ</div>
+            <div class="price">۱۹۰,۰۰۰ تومان</div>
+            <p>تمام سرورها • تمام پروتکل‌ها</p><br>
+            <a href="https://t.me/Leter11" class="btn">خرید فوری</a>
         </div>
+
         <div class="card popular">
-            <h3>300 گیگ <span style="background:#ff0066; padding:5px 10px; border-radius:10px; font-size:14px;">بصرفه‌ترین</span></h3>
-            <div class="price">420.000تومان</div>
-            <p style="color:#00ff00;">مدت نامحدود</p>
-            <a href="https://t.me/Leter11" class="btn">خرید</a>
+            <span class="popular-tag">بصرفه‌ترین</span>
+            <h3>اشتراک نامحدود</h3>
+            <div class="volume">حجم : 200 گیگ</div>
+            <div class="old-price">350.000 تومان</div>
+            <div class="price">300.000 تومان</div>
+            <p>صرفه‌جویی ۳۲٪</p><br>
+            <a href="https://t.me/Leter11" class="btn">خرید با تخفیف</a>
         </div>
+
         <div class="card">
-            <h3>100 گیگ</h3>
-            <div class="price">190.000 تومان</div>
-            <p style="color:#00ff00;">مدت نامحدود</p>
-            <a href="https://t.me/Leter11" class="btn">خرید</a>
+            <h3>اشتراک نامحدود</h3>
+            <div class="volume">حجم : 300 گیگ</div>
+            <div class="old-price">500.000</div>
+            <div class="price">420.000 تومان</div>
+            <p style="color:#00ff00; font-weight:bold;">۵۰٪ تخفیف واقعی!</p><br>
+            <a href="https://t.me/Leter11" class="btn">خرید فوری</a>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>کانال تلگرام: @v2ray_d | پشتیبانی: @Leter11</p>
-    <p>پرداخت با زرین‌پال • تتر • ترون • کارت به کارت</p>
+    <p>کانال رسمی: @v2ray_d | پشتیبانی ۲۴ ساعته: @Leter11</p>
+    <p>پرداخت امن با زرین‌پال • ارز دیجیتال (تتر/ترون) • کارت به کارت</p>
+    <p style="margin-top:30px; color:#888; font-size:14px;">© ۱۴۰۴ ویتوری - سریع‌ترین و لوکس‌ترین سرویس V2Ray ایران</p>
 </footer>
 
 </body>
-
 </html>
